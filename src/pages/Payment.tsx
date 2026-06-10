@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { CheckCircle, ExternalLink, Upload, AlertCircle, DollarSign, CreditCard } from 'lucide-react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { CheckCircle, ExternalLink, Upload, AlertCircle, DollarSign, CreditCard, Star } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -18,6 +18,10 @@ const BENEFITS = [
 export default function Payment() {
   const { user, businessProfile } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isPremium = searchParams.get('plan') === 'premium';
+  const planPrice = isPremium ? 30 : 20;
+  const planLabel = isPremium ? 'Premium Membership' : 'Business Membership';
   const [method, setMethod] = useState<PaymentMethod>('paypal');
   const [step, setStep] = useState<'choose' | 'confirm'>('choose');
   const [businessName, setBusinessName] = useState(businessProfile?.business_name || '');
@@ -106,15 +110,21 @@ export default function Payment() {
         <div className="text-center mb-12">
           <p className="text-gold-400 text-sm font-semibold uppercase tracking-widest mb-2">Membership</p>
           <h1 className="text-4xl lg:text-5xl font-black text-white mb-4">Activate Your Business</h1>
-          <p className="text-slate-400 text-lg">Join the marketplace for just $20/month and start connecting with local teams</p>
+          <p className="text-slate-400 text-lg">Join the marketplace for just <span className="text-gold-400 font-semibold">${planPrice}/month</span> and start connecting with local teams</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Benefits Sidebar */}
           <div className="lg:col-span-2">
             <div className="bg-navy-900/80 border border-white/10 rounded-3xl p-8 sticky top-24">
+              {isPremium && (
+                <div className="flex items-center gap-2 mb-4 px-3 py-2 bg-gold-400/10 border border-gold-400/20 rounded-xl">
+                  <Star size={14} className="text-gold-400" fill="currentColor" />
+                  <span className="text-gold-400 text-xs font-bold uppercase tracking-wide">Premium Plan Selected</span>
+                </div>
+              )}
               <div className="text-center mb-6">
-                <div className="text-5xl font-black text-white mb-1">$20</div>
+                <div className="text-5xl font-black text-white mb-1">${planPrice}</div>
                 <div className="text-slate-400 text-sm">per month · 30-day access</div>
               </div>
               <div className="space-y-3 mb-6">
@@ -125,10 +135,12 @@ export default function Payment() {
                   </div>
                 ))}
               </div>
-              <div className="p-4 bg-gold-400/5 border border-gold-400/20 rounded-xl">
-                <p className="text-gold-400 text-xs font-bold uppercase tracking-wider mb-1">Founding Member Bonus</p>
-                <p className="text-slate-400 text-xs">Join in the first 90 days and receive a permanent Founding Member badge and priority placement.</p>
-              </div>
+              {isPremium && (
+                <div className="p-4 bg-gold-400/5 border border-gold-400/20 rounded-xl">
+                  <p className="text-gold-400 text-xs font-bold uppercase tracking-wider mb-1">Premium Member Benefits</p>
+                  <p className="text-slate-400 text-xs">Includes Premium Badge, priority placement, featured homepage placement, and dedicated recognition page.</p>
+                </div>
+              )}
             </div>
           </div>
 
@@ -162,22 +174,22 @@ export default function Payment() {
                 {method === 'paypal' ? (
                   <div className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-6 mb-6">
                     <h3 className="text-white font-semibold mb-3">Pay via PayPal</h3>
-                    <p className="text-slate-400 text-sm mb-4">Send $20.00 to our PayPal account. Make sure to include your business name in the notes.</p>
+                    <p className="text-slate-400 text-sm mb-4">Send ${planPrice}.00 to our PayPal account. Make sure to include your business name in the notes.</p>
                     <a
-                      href="https://paypal.me/gsadvertising/20"
+                      href={`https://paypal.me/gsadvertising/${planPrice}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 w-full py-3.5 bg-blue-500/20 border border-blue-500/40 text-blue-400 hover:bg-blue-500/30 font-bold rounded-xl transition-all"
                     >
                       <DollarSign size={18} />
-                      Send $20 via PayPal
+                      Send ${planPrice} via PayPal
                       <ExternalLink size={14} />
                     </a>
                   </div>
                 ) : (
                   <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-6 mb-6">
                     <h3 className="text-white font-semibold mb-3">Pay via Cash App</h3>
-                    <p className="text-slate-400 text-sm mb-4">Send $20.00 to <span className="text-emerald-400 font-semibold">$GSAdvCon</span>. Include your business name in the note.</p>
+                    <p className="text-slate-400 text-sm mb-4">Send <span className="text-emerald-400 font-semibold">${planPrice}.00</span> to <span className="text-emerald-400 font-semibold">$GSAdvCon</span>. Include your business name in the note.</p>
                     <a
                       href="https://cash.app/$GSAdvCon"
                       target="_blank"
@@ -185,7 +197,7 @@ export default function Payment() {
                       className="flex items-center justify-center gap-2 w-full py-3.5 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/30 font-bold rounded-xl transition-all"
                     >
                       <CreditCard size={18} />
-                      Send $20 via Cash App
+                      Send ${planPrice} via Cash App
                       <ExternalLink size={14} />
                     </a>
                   </div>

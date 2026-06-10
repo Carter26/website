@@ -70,8 +70,6 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'Marketplace', path: '/marketplace' },
-    { label: 'Businesses', path: '/businesses' },
-    { label: 'Teams', path: '/teams' },
     { label: 'About', path: '/about' },
     { label: 'How It Works', path: '/how-it-works' },
     { label: 'Pricing', path: '/pricing' },

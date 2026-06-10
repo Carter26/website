@@ -84,7 +84,7 @@ export default function BusinessDashboard() {
                 {businessProfile?.membership_status?.toUpperCase() || 'PENDING'}
               </span>
               {businessProfile?.is_founding_member && (
-                <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-gold-400/10 border border-gold-400/30 text-gold-400">FOUNDING MEMBER</span>
+                <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-gold-400/10 border border-gold-400/30 text-gold-400">PREMIUM MEMBER</span>
               )}
             </div>
           </div>

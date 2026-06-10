@@ -84,8 +84,8 @@ export default function Footer() {
             </ul>
 
             <div className="mt-6 p-4 bg-gold-400/5 border border-gold-400/20 rounded-xl">
-              <p className="text-gold-400 text-xs font-semibold uppercase tracking-wider mb-1">Founding Member Program</p>
-              <p className="text-slate-400 text-xs">Join in the first 90 days for exclusive founding benefits.</p>
+              <p className="text-gold-400 text-xs font-semibold uppercase tracking-wider mb-1">Premium Member Program</p>
+              <p className="text-slate-400 text-xs">Upgrade to Premium for priority placement and exclusive recognition.</p>
               <Link to="/pricing" className="text-gold-400 text-xs font-semibold hover:text-gold-300 mt-2 inline-block">Learn More &rarr;</Link>
             </div>
           </div>

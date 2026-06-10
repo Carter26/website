@@ -43,7 +43,7 @@ export default function Home() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold-400/10 border border-gold-400/20 rounded-full mb-8">
               <Star size={14} className="text-gold-400" />
-              <span className="text-gold-400 text-sm font-medium">Now Accepting Founding Members</span>
+              <span className="text-gold-400 text-sm font-medium">Premium Membership Now Available</span>
               <ChevronRight size={14} className="text-gold-400" />
             </div>
 
@@ -206,8 +206,8 @@ export default function Home() {
                         <Star size={20} className="text-gold-400" />
                       </div>
                       <div>
-                        <div className="text-white font-bold text-sm">Founding Member</div>
-                        <div className="text-slate-400 text-xs">First 90 days priority access</div>
+                        <div className="text-white font-bold text-sm">Premium Member</div>
+                        <div className="text-slate-400 text-xs">Exclusive platform recognition</div>
                       </div>
                     </div>
                   </div>
@@ -275,7 +275,7 @@ export default function Home() {
         </section>
       </FadeSection>
 
-      {/* Founding Business Program */}
+      {/* Premium Member Program */}
       <FadeSection>
         <section className="py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -287,36 +287,36 @@ export default function Home() {
                 <div className="flex items-center gap-3 mb-6">
                   <div className="flex items-center gap-2 px-4 py-2 bg-gold-400/20 border border-gold-400/40 rounded-full">
                     <Star size={14} className="text-gold-400" fill="currentColor" />
-                    <span className="text-gold-400 text-sm font-bold">Founding Business Program</span>
+                    <span className="text-gold-400 text-sm font-bold">Premium Member Program</span>
                   </div>
-                  <span className="text-slate-400 text-sm">Limited Time Offer</span>
+                  <span className="text-slate-400 text-sm">$30/Month</span>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div>
                     <h2 className="text-4xl lg:text-5xl font-black text-white mb-6">
-                      Join as a{' '}
+                      Upgrade to{' '}
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">
-                        Founding Business
+                        Premium
                       </span>
                     </h2>
                     <p className="text-slate-300 text-lg leading-relaxed mb-8">
-                      Businesses joining during our first 90 days receive exclusive founding member recognition and premium platform benefits that won't be available later. This is your opportunity to be part of building something meaningful for your community from the very beginning.
+                      Take your sponsorship presence to the next level. Premium members receive exclusive platform recognition, priority placement in the marketplace, and dedicated homepage features that set them apart from the competition.
                     </p>
-                    <Link to="/pricing" className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-lg rounded-2xl transition-all shadow-xl shadow-gold-500/25 hover:scale-105">
-                      Claim Founding Status
+                    <Link to="/payment?plan=premium" className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-lg rounded-2xl transition-all shadow-xl shadow-gold-500/25 hover:scale-105">
+                      Get Premium — $30/mo
                       <ArrowRight size={20} />
                     </Link>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
-                      'Founding Business Badge',
+                      'Premium Member Badge',
                       'Priority Marketplace Placement',
                       'Featured Homepage Placement',
                       'Dedicated Recognition Page',
                       'Early Supporter Recognition',
-                      '$20/Month Membership',
+                      '$30/Month Membership',
                     ].map((benefit, i) => (
                       <div key={i} className="flex items-center gap-3 bg-navy-950/40 border border-gold-400/20 rounded-xl p-4">
                         <CheckCircle size={18} className="text-gold-400 flex-shrink-0" />

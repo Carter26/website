@@ -14,11 +14,11 @@ const BUSINESS_FEATURES = [
 ];
 
 const FOUNDING_EXTRAS = [
-  'Founding Business Badge on Profile',
+  'Premium Member Badge on Profile',
   'Priority Marketplace Placement',
   'Featured Homepage Placement',
   'Dedicated Recognition Page',
-  'Permanent Early Supporter Status',
+  'Premium Recognition Status',
   'First Access to New Features',
 ];
 
@@ -85,20 +85,20 @@ export default function Pricing() {
             </Link>
           </div>
 
-          {/* Founding Member */}
+          {/* Premium Member */}
           <div className="bg-gradient-to-br from-gold-400/10 via-navy-900 to-navy-900 border border-gold-400/30 rounded-3xl p-8">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-12 h-12 rounded-2xl bg-gold-400/20 border border-gold-400/30 flex items-center justify-center">
                 <Star size={24} className="text-gold-400" fill="currentColor" />
               </div>
-              <span className="px-3 py-1 bg-gold-400/20 border border-gold-400/30 rounded-full text-gold-400 text-xs font-bold uppercase">Limited Time</span>
+              <span className="px-3 py-1 bg-gold-400/20 border border-gold-400/30 rounded-full text-gold-400 text-xs font-bold uppercase">Best Value</span>
             </div>
-            <h3 className="text-white font-black text-2xl mb-1">Founding Member</h3>
+            <h3 className="text-white font-black text-2xl mb-1">Premium Member</h3>
             <div className="flex items-end gap-1 mb-2">
-              <span className="text-4xl font-black text-white">$20</span>
+              <span className="text-4xl font-black text-white">$30</span>
               <span className="text-slate-400 text-lg mb-1">/month</span>
             </div>
-            <p className="text-gold-400 text-sm mb-8 font-medium">First 90 days only — exclusive perks included</p>
+            <p className="text-gold-400 text-sm mb-8 font-medium">All standard features plus exclusive premium perks</p>
             <div className="space-y-3 mb-8">
               {[...BUSINESS_FEATURES, ...FOUNDING_EXTRAS].map(f => (
                 <div key={f} className="flex items-center gap-3">
@@ -107,8 +107,8 @@ export default function Pricing() {
                 </div>
               ))}
             </div>
-            <Link to="/register?type=business" className="block w-full py-4 bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 text-navy-950 font-bold text-center rounded-2xl transition-all flex items-center justify-center gap-2">
-              <Star size={16} fill="currentColor" />Claim Founding Status
+            <Link to="/payment?plan=premium" className="block w-full py-4 bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 text-navy-950 font-bold text-center rounded-2xl transition-all flex items-center justify-center gap-2">
+              <Star size={16} fill="currentColor" />Get Premium — $30/mo
             </Link>
           </div>
         </div>

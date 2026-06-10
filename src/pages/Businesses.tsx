@@ -89,7 +89,7 @@ export default function Businesses() {
                   {business.is_founding_member && (
                     <div className="flex items-center gap-1 px-2.5 py-1 bg-gold-400/10 border border-gold-400/20 rounded-lg">
                       <Star size={11} className="text-gold-400" fill="currentColor" />
-                      <span className="text-gold-400 text-xs font-bold">Founding</span>
+                      <span className="text-gold-400 text-xs font-bold">Premium</span>
                     </div>
                   )}
                 </div>

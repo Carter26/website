@@ -108,7 +108,7 @@ export default function ListingDetail() {
               <div className="flex items-center gap-3 mb-3">
                 <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400 text-xs font-semibold">{listing.listing_type}</span>
                 {business?.is_founding_member && (
-                  <span className="px-3 py-1 bg-gold-400/10 border border-gold-400/30 rounded-lg text-gold-400 text-xs font-bold">Founding Business</span>
+                  <span className="px-3 py-1 bg-gold-400/10 border border-gold-400/30 rounded-lg text-gold-400 text-xs font-bold">Premium Business</span>
                 )}
               </div>
               <h1 className="text-3xl font-black text-white mb-4">{listing.title}</h1>

@@ -184,7 +184,7 @@ export default function Admin() {
                         <div className="flex items-center gap-2">
                           <p className="text-white font-semibold">{b.business_name}</p>
                           <StatusBadge status={b.membership_status} />
-                          {b.is_founding_member && <span className="px-2 py-0.5 bg-gold-400/10 border border-gold-400/20 rounded text-gold-400 text-xs">Founding</span>}
+                          {b.is_founding_member && <span className="px-2 py-0.5 bg-gold-400/10 border border-gold-400/20 rounded text-gold-400 text-xs">Premium</span>}
                         </div>
                         <p className="text-slate-400 text-sm">{b.category} · {b.city}, {b.state}</p>
                         {b.expiration_date && <p className="text-slate-500 text-xs">Expires: {new Date(b.expiration_date).toLocaleDateString()}</p>}
@@ -253,7 +253,7 @@ export default function Admin() {
                     { label: 'Total Listings', value: stats.listings, color: 'emerald' },
                     { label: 'Pending Payments', value: stats.payments, color: 'red' },
                     { label: 'Active Businesses', value: businesses.filter(b => b.membership_status === 'active').length, color: 'emerald' },
-                    { label: 'Founding Members', value: businesses.filter(b => b.is_founding_member).length, color: 'gold' },
+                    { label: 'Premium Members', value: businesses.filter(b => b.is_founding_member).length, color: 'gold' },
                     { label: 'Suspended', value: businesses.filter(b => b.membership_status === 'suspended').length, color: 'red' },
                     { label: 'Approved Payments', value: payments.filter(p => p.status === 'approved').length, color: 'blue' },
                   ].map((s, i) => (

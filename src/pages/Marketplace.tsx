@@ -257,7 +257,7 @@ function ListingCard({ listing, user }: { listing: ListingWithBusiness; user: un
         </div>
         {business?.is_founding_member && (
           <div className="ml-auto flex-shrink-0 px-2 py-1 bg-gold-400/10 border border-gold-400/30 rounded-lg">
-            <span className="text-gold-400 text-xs font-bold">Founding</span>
+            <span className="text-gold-400 text-xs font-bold">Premium</span>
           </div>
         )}
       </div>
