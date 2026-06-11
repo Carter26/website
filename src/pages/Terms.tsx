@@ -77,7 +77,7 @@ export default function Terms() {
           </Section>
 
           <Section title="10. Contact Information">
-            <p>If you have questions about these Terms of Service, please contact us through the Contact page on the Platform or by email at info@gsadvertising.com.</p>
+            <p>If you have questions about these Terms of Service, please contact us through the Contact page on the Platform or by email at gsadvertisingandconnections@gmail.com.</p>
           </Section>
 
           <div className="mt-8 pt-8 border-t border-white/10">

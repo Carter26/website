@@ -71,7 +71,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail size={15} className="text-gold-400 mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@gsadvertising.com" className="text-slate-400 hover:text-white text-sm transition-colors">info@gsadvertising.com</a>
+                <a href="mailto:gsadvertisingandconnections@gmail.com" className="text-slate-400 hover:text-white text-sm transition-colors">gsadvertisingandconnections@gmail.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={15} className="text-gold-400 mt-0.5 flex-shrink-0" />

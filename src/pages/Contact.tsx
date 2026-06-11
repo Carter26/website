@@ -53,7 +53,7 @@ export default function Contact() {
             <h2 className="text-white font-bold text-xl mb-6">Contact Information</h2>
             <div className="space-y-5">
               {[
-                { icon: Mail, label: 'Email', value: 'info@gsadvertising.com', href: 'mailto:info@gsadvertising.com' },
+                { icon: Mail, label: 'Email', value: 'gsadvertisingandconnections@gmail.com', href: 'mailto:gsadvertisingandconnections@gmail.com' },
                 { icon: Phone, label: 'Support', value: 'Use the contact form', href: null },
                 { icon: MapPin, label: 'Location', value: 'Serving communities nationwide', href: null },
                 { icon: Clock, label: 'Response Time', value: 'Within 24–48 hours', href: null },

@@ -82,7 +82,7 @@ export default function Privacy() {
               <li><strong className="text-white">Deletion:</strong> Request deletion of your account and associated personal data</li>
               <li><strong className="text-white">Opt-Out:</strong> Opt out of non-essential communications</li>
             </ul>
-            <p>To exercise these rights, contact us through the Contact page or at info@gsadvertising.com. We will respond to your request within 30 days.</p>
+            <p>To exercise these rights, contact us through the Contact page or at gsadvertisingandconnections@gmail.com. We will respond to your request within 30 days.</p>
           </Section>
 
           <Section title="7. Children's Privacy">
@@ -98,7 +98,7 @@ export default function Privacy() {
           </Section>
 
           <Section title="10. Contact Us">
-            <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal information, please contact us through the Contact page on the Platform or at info@gsadvertising.com. We are committed to resolving any privacy concerns promptly and transparently.</p>
+            <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal information, please contact us through the Contact page on the Platform or at gsadvertisingandconnections@gmail.com. We are committed to resolving any privacy concerns promptly and transparently.</p>
           </Section>
 
           <div className="mt-8 pt-8 border-t border-white/10">
