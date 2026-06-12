@@ -119,12 +119,12 @@ export default function Pricing() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <div className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-6 text-center">
               <div className="text-blue-400 font-bold text-lg mb-2">PayPal</div>
-              <p className="text-slate-400 text-sm mb-4">Send $20 to our PayPal link</p>
+              <p className="text-slate-400 text-sm mb-4">Send $20 or $30 (Premium) to our PayPal link</p>
               <code className="text-blue-400 text-sm bg-blue-500/10 px-3 py-2 rounded-lg block">paypal.me/gsadvertising</code>
             </div>
             <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-6 text-center">
               <div className="text-emerald-400 font-bold text-lg mb-2">Cash App</div>
-              <p className="text-slate-400 text-sm mb-4">Send $20 to our Cash App</p>
+              <p className="text-slate-400 text-sm mb-4">Send $20 or $30 (Premium) to our Cash App</p>
               <code className="text-emerald-400 text-sm bg-emerald-500/10 px-3 py-2 rounded-lg block">$GSAdvCon</code>
             </div>
           </div>

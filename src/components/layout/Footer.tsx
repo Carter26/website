@@ -36,10 +36,9 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: 'Marketplace', to: '/marketplace' },
-                { label: 'For Businesses', to: '/businesses' },
-                { label: 'For Teams', to: '/teams' },
                 { label: 'Pricing', to: '/pricing' },
                 { label: 'How It Works', to: '/how-it-works' },
+                { label: 'About', to: '/about' },
               ].map(l => (
                 <li key={l.to}>
                   <Link to={l.to} className="text-slate-400 hover:text-gold-400 text-sm transition-colors">{l.label}</Link>

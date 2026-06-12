@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Users, TrendingUp, Star, ChevronRight, Trophy, Building2, Handshake, CheckCircle } from 'lucide-react';
+import { ArrowRight, Shield, Users, TrendingUp, Star, ChevronRight, Trophy, Building2, Handshake, CheckCircle, MapPin } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import type { BusinessProfile } from '../types';
 
 function useIntersectionObserver() {
   const ref = useRef<HTMLDivElement>(null);
@@ -28,6 +30,21 @@ function FadeSection({ children, className = '' }: { children: React.ReactNode; 
 }
 
 export default function Home() {
+  const [featuredBusinesses, setFeaturedBusinesses] = useState<BusinessProfile[]>([]);
+
+  useEffect(() => {
+    supabase
+      .from('business_profiles')
+      .select('*')
+      .eq('is_founding_member', true)
+      .eq('membership_status', 'active')
+      .order('profile_views', { ascending: false })
+      .limit(4)
+      .then(({ data }) => {
+        if (data) setFeaturedBusinesses(data);
+      });
+  }, []);
+
   return (
     <div className="bg-navy-950 min-h-screen">
       {/* Hero */}
@@ -274,6 +291,48 @@ export default function Home() {
           </div>
         </section>
       </FadeSection>
+
+      {/* Featured Premium Businesses */}
+      {featuredBusinesses.length > 0 && (
+        <FadeSection>
+          <section className="py-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <p className="text-gold-400 text-sm font-semibold uppercase tracking-widest mb-3">Premium Partners</p>
+                <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">Featured Community Sponsors</h2>
+                <p className="text-slate-400 text-lg max-w-2xl mx-auto">Our Premium Members are leading businesses committed to supporting local athletics and community growth.</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {featuredBusinesses.map(biz => (
+                  <div key={biz.id} className="bg-navy-900/80 border border-gold-400/20 hover:border-gold-400/40 rounded-2xl p-6 transition-all group">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-400/20 to-gold-600/10 border border-gold-400/20 flex items-center justify-center flex-shrink-0">
+                        {biz.logo_url ? (
+                          <img src={biz.logo_url} alt={biz.business_name} className="w-full h-full object-cover rounded-xl" />
+                        ) : (
+                          <Building2 size={20} className="text-gold-400" />
+                        )}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-white font-bold text-sm truncate">{biz.business_name}</p>
+                        <div className="flex items-center gap-1 text-slate-400 text-xs">
+                          <MapPin size={10} />
+                          <span className="truncate">{biz.city}, {biz.state}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-slate-400 text-xs line-clamp-2 mb-3">{biz.description || 'Community-focused business'}</p>
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 bg-gold-400/10 border border-gold-400/30 rounded text-gold-400 text-xs font-bold">Premium</span>
+                      <span className="text-slate-500 text-xs">{biz.category}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </FadeSection>
+      )}
 
       {/* Premium Member Program */}
       <FadeSection>

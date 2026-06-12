@@ -42,6 +42,7 @@ export default function Marketplace() {
       .from('listings')
       .select('*, business:business_profiles(*)')
       .eq('is_active', true)
+      .order('is_founding_member', { ascending: false })
       .order('created_at', { ascending: false });
 
     if (!error && data) {

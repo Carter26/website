@@ -288,8 +288,12 @@ export default function BusinessDashboard() {
             <div className="bg-navy-900/80 border border-white/10 rounded-2xl p-8 mb-6">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h3 className="text-white font-bold text-lg">Business Membership</h3>
-                  <p className="text-slate-400 text-sm">$20 per month</p>
+                  <h3 className="text-white font-bold text-lg">
+                    {businessProfile?.plan_type === 'premium' ? 'Premium Membership' : 'Business Membership'}
+                  </h3>
+                  <p className="text-slate-400 text-sm">
+                    {businessProfile?.plan_type === 'premium' ? '$30 per month' : '$20 per month'}
+                  </p>
                 </div>
                 <StatusBadge status={businessProfile?.membership_status || 'pending'} large />
               </div>
@@ -304,14 +308,22 @@ export default function BusinessDashboard() {
                 </div>
               </div>
               <div className="space-y-2 mb-6">
-                {['Marketplace Visibility', 'Unlimited Sponsorship Listings', 'Team Application Management', 'Analytics Dashboard', 'Priority Placement'].map(b => (
+                {[
+                  'Marketplace Visibility',
+                  'Unlimited Sponsorship Listings',
+                  'Team Application Management',
+                  'Analytics Dashboard',
+                  ...(businessProfile?.plan_type === 'premium'
+                    ? ['Premium Member Badge', 'Priority Placement', 'Featured Homepage Placement', 'Dedicated Recognition Page']
+                    : ['Priority Placement']),
+                ].map(b => (
                   <div key={b} className="flex items-center gap-2 text-sm">
-                    <CheckCircle size={15} className="text-emerald-400" />
+                    <CheckCircle size={15} className={businessProfile?.plan_type === 'premium' ? 'text-gold-400' : 'text-emerald-400'} />
                     <span className="text-slate-300">{b}</span>
                   </div>
                 ))}
               </div>
-              <Link to="/payment" className="flex items-center justify-center gap-2 py-4 bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold rounded-xl transition-all">
+              <Link to={businessProfile?.plan_type === 'premium' ? '/payment?plan=premium' : '/payment'} className="flex items-center justify-center gap-2 py-4 bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold rounded-xl transition-all">
                 {businessProfile?.membership_status === 'active' ? 'Renew Subscription' : 'Subscribe Now'}
               </Link>
             </div>

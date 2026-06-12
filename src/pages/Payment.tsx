@@ -62,6 +62,7 @@ export default function Payment() {
       transaction_id: transactionId || null,
       screenshot_url: screenshotUrl,
       status: 'pending',
+      plan_type: isPremium ? 'premium' : 'standard',
     });
 
     setLoading(false);

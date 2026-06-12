@@ -51,11 +51,19 @@ export default function Admin() {
     expirationDate.setDate(expirationDate.getDate() + 30);
 
     await supabase.from('payment_confirmations').update({ status: 'approved' }).eq('id', payment.id);
-    await supabase.from('business_profiles').update({
+
+    const updateData: any = {
       membership_status: 'active',
       activation_date: activationDate.toISOString(),
       expiration_date: expirationDate.toISOString(),
-    }).eq('id', payment.business_id);
+      plan_type: payment.plan_type,
+    };
+
+    if (payment.plan_type === 'premium') {
+      updateData.is_founding_member = true;
+    }
+
+    await supabase.from('business_profiles').update(updateData).eq('id', payment.business_id);
     await supabase.from('notifications').insert({
       user_id: payment.business_id,
       title: 'Membership Activated!',
@@ -63,7 +71,7 @@ export default function Admin() {
       link: '/dashboard',
     });
     setPayments(prev => prev.map(p => p.id === payment.id ? { ...p, status: 'approved' } : p));
-    setBusinesses(prev => prev.map(b => b.id === payment.business_id ? { ...b, membership_status: 'active' } : b));
+    setBusinesses(prev => prev.map(b => b.id === payment.business_id ? { ...b, membership_status: 'active', plan_type: payment.plan_type, ...(payment.plan_type === 'premium' ? { is_founding_member: true } : {}) } : b));
   };
 
   const rejectPayment = async (paymentId: string) => {
