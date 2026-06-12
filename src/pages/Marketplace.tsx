@@ -46,7 +46,7 @@ export default function Marketplace() {
       .order('created_at', { ascending: false });
 
     if (!error && data) {
-      const active = data.filter((l: ListingWithBusiness) => l.business?.membership_status === 'active');
+      const active = data.filter((l: ListingWithBusiness) => l.is_active);
       setListings(active);
       setFiltered(active);
     }
