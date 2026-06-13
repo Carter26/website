@@ -42,13 +42,16 @@ export default function Marketplace() {
       .from('listings')
       .select('*, business:business_profiles(*)')
       .eq('is_active', true)
-      .order('is_founding_member', { ascending: false })
       .order('created_at', { ascending: false });
 
     if (!error && data) {
-      const active = data.filter((l: ListingWithBusiness) => l.is_active);
-      setListings(active);
-      setFiltered(active);
+      const sorted = (data as ListingWithBusiness[]).sort((a, b) => {
+        const aPremium = a.business?.is_founding_member ? 1 : 0;
+        const bPremium = b.business?.is_founding_member ? 1 : 0;
+        return bPremium - aPremium;
+      });
+      setListings(sorted);
+      setFiltered(sorted);
     }
     setLoading(false);
   };
