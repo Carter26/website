@@ -1,0 +1,60 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "GS Advertising & Connections",
+  "theme": "almond",
+  "colors": {
+    "primary": "#2563EB",
+    "light": "#EFF6FF",
+    "dark": "#1E40AF"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guide",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "how-it-works",
+              "create-account"
+            ]
+          },
+          {
+            "group": "For Businesses",
+            "pages": [
+              "businesses/overview",
+              "businesses/creating-listings",
+              "businesses/managing-applications",
+              "businesses/subscription"
+            ]
+          },
+          {
+            "group": "For Teams",
+            "pages": [
+              "teams/overview",
+              "teams/browsing-marketplace",
+              "teams/applying-for-sponsorships"
+            ]
+          },
+          {
+            "group": "Platform",
+            "pages": [
+              "platform/marketplace",
+              "platform/premium-membership",
+              "platform/faq"
+            ]
+          },
+          {
+            "group": "Legal",
+            "pages": [
+              "legal/terms",
+              "legal/privacy"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
